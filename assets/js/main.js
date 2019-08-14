@@ -9,6 +9,13 @@
         this.hideBlocks();
     };
 
+    window.onclick = function() {botFunction()};
+
+    function botFunction() {
+        document.body.scrollTo(0,document.body.scrollHeight); // For Safari
+        document.documentElement.scrollTo(0,document.body.scrollHeight); // For Chrome, Firefox, IE and Opera
+    };
+
     VerticalTimeline.prototype.hideBlocks = function () {
         if (!"classList" in document.documentElement) {
             return; // no animation on older browsers
