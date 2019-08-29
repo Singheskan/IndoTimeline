@@ -13,7 +13,6 @@
     <a href="https://www.tu-darmstadt.de/" target="_blank">Technische Universität Darmstadt</a>
     <subtitle> |</subtitle>
     <a href="https://www.ui.ac.id/" target="_blank">Universitas Indonesia</a>
-    <!-- TODO: Insert links -->
 </head>
 
 <body>
@@ -149,6 +148,49 @@
             </div> <!-- cd-timeline__content -->
         </div> <!-- cd-timeline__block -->
 
+        <div class="cd-timeline__block">                                        <!-- Copy this block to add a post -->
+            <div class="cd-timeline__img cd-timeline__img--location">
+                <img src="assets/img/cd-icon-picture.svg" alt="Location"> <!-- alt = Picture, Movie, or Location -->
+            </div> <!-- cd-timeline__img -->
+            <div class="cd-timeline__content text-component">
+                <h2>1000 Islands</h2> <!-- Section Title -->
+                <p class="color-contrast-medium">Pulau Seribu (“1000 Islands”) is a chain of actually around 110 islands
+                    located north-west of Jakarta. We were staying for three days at Pramuka Island and exploring the
+                    surrounding islands from there including the National Marine Park, a sanctuary for Hawksbill Sea
+                    Turtles and local sharks. You can find the location of our stay in the attached Google Map. (I can
+                    only use the Google API cost-free in developer mode, sorry for the inconvenience)
+                    The locals’ life a lay-back life fishing, dancing, and singing all day and do not worry too much
+                    about the hectic life of their fellow citizens in Jakarta. We had a chance to calm down and were
+                    indulging paradise for a little bit. I saw some kids fighting like in a series I watched as a kid
+                    called “Naruto”. Somehow that made me cringe but also nostalgic at the same time.
+                </p> <!-- Section Content -->
+                <div id="map"></div>
+                <script>
+                    // Initialize and add the map
+                    function initMap() {
+                        // The location of Palau Tidung
+                        var palautidung = {lat: -5.749, lng: 106.611};
+                        // The map, centered at Palau Tidung
+                        var map = new google.maps.Map(
+                            document.getElementById('map'), {zoom: 4, center: palautidung});
+                        // The marker, positioned at Palau Tidung
+                        var marker = new google.maps.Marker({position: palautidung, map: map});
+                    }
+                </script>
+                <!--Load the API from the specified URL
+                * The async attribute allows the browser to render the page while the API loads
+                * The key parameter will contain your own API key (which is not needed for this tutorial)
+                * The callback parameter executes the initMap() function
+                -->
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW8WzLU63vpAgRbGb1dnaTdTBKwUVQK0A&callback=initMap">
+                </script>
+                <div class="flex justify-between items-center">
+                    <span class="cd-timeline__date">29.08.19</span> <!-- Section Date -->
+                </div>
+            </div> <!-- cd-timeline__content -->
+        </div> <!-- cd-timeline__block -->
+
     </div>
 </section> <!-- cd-timeline -->
 <script src="assets/js/main.js"></script>
@@ -171,6 +213,12 @@
 
     #myBtn:hover {
         background-color: #555; /* Add a dark-grey background on hover */
+    }
+
+    /* Set the size of the div element that contains the map */
+    #map {
+        height: 400px; /* The height is 400 pixels */
+        width: 100%; /* The width is the width of the web page */
     }
 </style>
 </html>
